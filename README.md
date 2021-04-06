@@ -7,3 +7,4 @@ in a controlled repository now.
 
 * `datatypes`: examples of various datatype thingies
 * `structs.rs`: struct and enum examples
+* `arrays.rs`: array and vector examples
