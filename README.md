@@ -6,3 +6,4 @@ of these were on the playground, but I prefer to have them
 in a controlled repository now.
 
 * `datatypes`: examples of various datatype thingies
+* `structs.rs`: struct and enum examples
