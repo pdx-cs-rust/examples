@@ -9,3 +9,5 @@ in a controlled repository now.
 * `structs.rs`: struct and enum examples
 * `arrays.rs`: array and vector examples
 * `strings.rs`: string and str examples
+* `iterators.rs`: iterator examples
+* `closures.rs`: closure examples
