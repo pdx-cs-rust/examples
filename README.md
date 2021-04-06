@@ -11,3 +11,4 @@ in a controlled repository now.
 * `strings.rs`: string and str examples
 * `iterators.rs`: iterator examples
 * `closures.rs`: closure examples
+* `lifetimes.rs`: simple lifetime example
