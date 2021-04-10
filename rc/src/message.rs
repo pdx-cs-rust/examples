@@ -14,7 +14,7 @@
 use crate::counter::Counter;
 
 /// Message to print plus usage counter.
-#[derive(Clone)]
+#[derive(Debug, Clone)]
 pub struct Message {
     /// Message text.
     message: &'static str,
@@ -28,6 +28,12 @@ impl Message {
     pub fn new(message: &'static str) -> Message
     {
         Message { message, counter: Counter::default() }
+    }
+
+    /// Make a new message with provided counter.
+    pub fn with_counter(message: &'static str, counter: Counter) -> Message
+    {
+        Message { message, counter }
     }
 
     /// Access the message text.

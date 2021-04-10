@@ -18,7 +18,7 @@ use std::cell::{RefCell, RefMut};
 use std::rc::Rc;
 
 /// An interior-mutable shared counter over the restricted `Count`.
-#[derive(Default, Clone)]
+#[derive(Debug, Default, Clone)]
 pub struct Counter(Rc<RefCell<Count>>);
 
 impl Counter {

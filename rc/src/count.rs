@@ -8,7 +8,7 @@
 //!     assert_eq!(count.value(), 1);
 
 /// A non-negative count.
-#[derive(Default)]
+#[derive(Debug, Default)]
 pub struct Count(u64);
 
 impl Count {
