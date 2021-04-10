@@ -47,3 +47,25 @@ impl Message {
         self.counter.value()
     }
 }
+
+/// Some additional functionality for the `05-cycles` demo.
+impl Message {
+    /// Print the message and counter.
+    pub fn print(&self) {
+        self.counter.incr();
+        print!("{} {}", self.message, self.counter.value());
+    }
+
+    /// Add a newline.
+    pub fn println(&self) {
+        self.print();
+        println!();
+    }
+}
+
+#[cfg(feature = "show_message_drop")]
+impl Drop for Message {
+    fn drop(&mut self) {
+        println!("dropping message {}", self.message);
+    }
+}

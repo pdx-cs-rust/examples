@@ -1,22 +1,17 @@
-// https://doc.rust-lang.org/std/cell/
-mod count;
-mod rcmessage;
-pub use rcmessage::*;
+use std::cell::RefCell;
+use std::rc::Rc;
 
-impl Drop for Message {
-    fn drop(&mut self) {
-        println!("dropping {}", self.message);
-    }
-}
+use rc::message::Message;
+use rc::misc::make_messages;
 
 #[derive(Clone)]
-struct MessageList<'a> {
+struct MessageList {
     cur: Message,
-    next: Option<Rc<RefCell<MessageList<'a>>>>,
+    next: Option<Rc<RefCell<MessageList>>>,
 }
 
-impl<'a> MessageList<'a> {
-    fn new(cur: Message) -> MessageList<'a> {
+impl MessageList {
+    fn new(cur: Message) -> MessageList {
         MessageList { cur, next: None }
     }
 
@@ -59,8 +54,8 @@ fn message() {
 
 /// Make a couple of message lists with given message
 /// strings and no tail.
-fn make_message_lists<'a>(m1: &'static str, m2: &'static str)
-                 -> (MessageList<'a>, MessageList<'a>)
+fn make_message_lists(m1: &'static str, m2: &'static str)
+                 -> (MessageList, MessageList)
 {
     let (m1, m2) = make_messages(m1, m2);
     let ml1 = MessageList::new(m1);

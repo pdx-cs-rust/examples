@@ -3,3 +3,6 @@ name = "rc"
 version = "0.1.0"
 authors = ["Bart Massey <bart@cs.pdx.edu>"]
 edition = "2018"
+
+[features]
+show_message_drop = []
