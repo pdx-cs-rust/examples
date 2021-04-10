@@ -12,3 +12,4 @@ in a controlled repository now.
 * `iterators.rs`: iterator examples
 * `closures.rs`: closure examples
 * `lifetimes.rs`: simple lifetime example
+* `rc`: examples with `RefCell` and `Rc`
