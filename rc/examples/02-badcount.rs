@@ -1,9 +1,9 @@
-use rc::count::Count;
+use rc::simple::Counter;
 
 /// A "message" struct. More later.
 struct Message<'a> {
     note: &'static str,
-    counter: &'a mut Count,
+    counter: &'a mut Counter,
 }
 
 /// Increment the given count. Note that this function takes
@@ -20,7 +20,7 @@ fn main() {
     todo!();
     // This code will fail to compile because of two mutable
     // references to `count`.
-    let mut count = Count::default();
+    let mut count = Counter::default();
     let mut left = Message { note: "left", counter: &mut count };
     let mut right = Message { note: "right", counter: &mut count };
     left.update_count();

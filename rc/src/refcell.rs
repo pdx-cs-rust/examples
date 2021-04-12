@@ -2,7 +2,7 @@
 //!
 //! # Examples
 //!
-//!     # use rc::counter::Counter;
+//!     # use rc::refcell::Counter;
 //!     let c0 = Counter::default();
 //!     c0.incr();
 //!     assert_eq!(c0.value(), 1);
@@ -12,14 +12,14 @@
 //!     assert_eq!(c0.value(), 3);
 //!     assert_eq!(c1.value(), 3);
 
-use crate::count::Count;
+use crate::simple;
 
 use std::cell::{RefCell, RefMut};
 use std::rc::Rc;
 
-/// An interior-mutable shared counter over the restricted `Count`.
+/// An interior-mutable shared counter over the restricted `simple::Counter`.
 #[derive(Debug, Default, Clone)]
-pub struct Counter(Rc<RefCell<Count>>);
+pub struct Counter(Rc<RefCell<simple::Counter>>);
 
 impl Counter {
     // Note that this method takes `self` by immutable
@@ -42,7 +42,7 @@ impl Counter {
         self.value()
     }
 
-    pub fn count_mut(&self) -> RefMut<Count> {
+    pub fn count_mut(&self) -> RefMut<simple::Counter> {
         self.0.borrow_mut()
     }
 }

@@ -1,6 +1,4 @@
-use rc::message::Message;
 use rc::misc::make_messages;
-use rc::counter::Counter;
 
 fn main() {
     let (m1, m2) = make_messages("m1", "m2");

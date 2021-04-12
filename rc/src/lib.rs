@@ -1,7 +1,7 @@
 //! Counting-related ADTs.
 
-pub mod count;
-pub mod counter;
+pub mod simple;
+pub mod cell;
+pub mod refcell;
 pub mod message;
-pub mod ctr;
 pub mod misc;

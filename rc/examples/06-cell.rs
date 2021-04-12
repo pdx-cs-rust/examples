@@ -1,5 +1,4 @@
-// https://doc.rust-lang.org/std/cell/
-use rc::counter::Counter;
+use rc::cell::Counter;
 
 /// Increment the given counter. Note that this function
 /// takes `counter` by immutable reference.
@@ -12,5 +11,4 @@ fn main() {
     println!("{}", counter.value());
     update_counter(&counter);
     println!("{}", counter.value());
-    println!("{}", counter.incr_value());
 }

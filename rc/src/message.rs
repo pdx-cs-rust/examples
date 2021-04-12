@@ -11,7 +11,7 @@
 //!     assert_eq!(htmp.text(), "hello");
 //!     assert_eq!(hello.accesses(), 2);
 
-use crate::counter::Counter;
+use crate::refcell::Counter;
 
 /// Message to print plus usage counter.
 #[derive(Debug, Clone)]

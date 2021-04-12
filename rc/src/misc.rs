@@ -1,4 +1,4 @@
-use crate::counter::Counter;
+use crate::refcell::Counter;
 use crate::message::Message;
 
 /// Make a couple of messages with given message strings.

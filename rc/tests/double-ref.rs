@@ -1,4 +1,4 @@
-use rc::counter::Counter;
+use rc::refcell::Counter;
 
 #[test]
 #[should_panic]

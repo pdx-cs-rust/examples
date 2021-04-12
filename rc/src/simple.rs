@@ -2,16 +2,16 @@
 //!      
 //! # Examples
 //!
-//!     # use rc::count::Count;
-//!     let mut count = Count::default();
+//!     # use rc::simple::Counter;
+//!     let mut count = Counter::default();
 //!     count.incr();
 //!     assert_eq!(count.value(), 1);
 
-/// A non-negative count.
+/// A non-negative counter.
 #[derive(Debug, Default)]
-pub struct Count(u64);
+pub struct Counter(u64);
 
-impl Count {
+impl Counter {
     /// Increase the count by one.
     pub fn incr(&mut self) {
         self.0 += 1;
