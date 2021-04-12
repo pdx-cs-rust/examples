@@ -2,7 +2,9 @@ use rc::simple::Counter;
 
 /// A "message" struct. More later.
 struct Message<'a> {
+    /// Text of message.
     note: &'static str,
+    /// Number of times the message has been accessed.
     counter: &'a mut Counter,
 }
 

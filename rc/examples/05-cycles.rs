@@ -43,15 +43,6 @@ impl MessageList {
     }
 }
 
-/// Show simple use of messages with shared print counter.
-fn message() {
-    let (m1, m2) = make_messages("m1", "m2");
-    m1.println();
-    m2.println();
-    m1.println();
-    m2.println();
-}
-
 /// Make a couple of message lists with given message
 /// strings and no tail.
 fn make_message_lists(m1: &'static str, m2: &'static str)
@@ -84,8 +75,6 @@ fn message_list_cycle() {
 }
 
 fn main() {
-    message();
-    println!();
     message_list();
     println!();
     message_list_cycle();

@@ -7,6 +7,6 @@ pub fn make_messages(m1: &'static str, m2: &'static str)
 {
     let counter = Counter::default();
     let m1 = Message::with_counter(m1, Counter::clone(&counter));
-    let m2 = Message::with_counter(m2, counter);
+    let m2 = Message::with_counter(m2, Counter::clone(&counter));
     (m1, m2)
 }
