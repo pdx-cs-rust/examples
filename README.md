@@ -13,4 +13,5 @@ in a controlled repository now.
 * `closures.rs`: closure examples
 * `lifetimes.rs`: simple lifetime example
 * `rc`: examples with `RefCell` and `Rc`
+* `readline`: example of readline with error handling
 * `error`: example of creating a custom error
