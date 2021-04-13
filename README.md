@@ -13,3 +13,4 @@ in a controlled repository now.
 * `closures.rs`: closure examples
 * `lifetimes.rs`: simple lifetime example
 * `rc`: examples with `RefCell` and `Rc`
+* `error`: example of creating a custom error
