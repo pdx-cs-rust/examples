@@ -16,3 +16,4 @@ in a controlled repository now.
 * `readline`: example of readline with error handling
 * `error`: example of creating a custom error
 * `modules`: example of Rust modules
+* `point.rs`: example of Rust "methods" and ownership
