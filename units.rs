@@ -1,7 +1,7 @@
 // https://doc.rust-lang.org/stable/rust-by-example/trait/derive.html
 
 // A tuple struct that can be compared
-#[derive(PartialEq, PartialOrd)]
+#[derive(Debug, PartialEq, PartialOrd)]
 struct Centimeters(f64);
 
 // A tuple struct that can be printed
@@ -11,7 +11,6 @@ struct Inches(i32);
 impl Inches {
     fn to_centimeters(&self) -> Centimeters {
         let &Inches(inches) = self;
-
         Centimeters(inches as f64 * 2.54)
     }
 }
@@ -32,18 +31,17 @@ fn main() {
     //let _this_is_true = _one_second == _one_second;
     // TODO ^ Try uncommenting this line
 
-    let foot = Inches(12);
+    let yard = Inches(36);
 
-    println!("One foot === {:?}", foot);
+    println!("One yard === {:?}", yard);
 
     let meter = Centimeters(100.0);
 
-    let cmp =
-        if foot.to_centimeters() < meter {
-            "smaller"
-        } else {
-            "bigger"
-        };
+    let cmp = if yard.to_centimeters() < meter {
+        "smaller"
+    } else {
+        "bigger"
+    };
 
-    println!("one foot is {} than one meter", cmp);
+    println!("one yard is {} than one meter", cmp);
 }

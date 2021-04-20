@@ -10,13 +10,14 @@ impl Point {
     }
     
     fn flip(&mut self) {
-        let tmp = self.x;
-        self.x = self.y;
-        self.y = tmp;
+        // let tmp = self.x;
+        // self.x = self.y;
+        // self.y = tmp;
+        std::mem::swap(&mut self.x, &mut self.y);
     }
     
     fn flipped(&self) -> Point {
-        Point{ x: self. y, y: self. x }
+        Point{ x: self.y, y: self.x }
     }
     
     fn collapse(self) -> i64 {
