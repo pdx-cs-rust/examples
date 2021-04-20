@@ -18,3 +18,4 @@ in a controlled repository now.
 * `modules`: example of modules
 * `point.rs`: example of "methods" and ownership
 * `units.rs`: example of newtype and deriving
+* `patmove.rs`: example of `ref` in patterns
