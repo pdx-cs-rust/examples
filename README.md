@@ -15,5 +15,6 @@ in a controlled repository now.
 * `rc`: examples with `RefCell` and `Rc`
 * `readline`: example of readline with error handling
 * `error`: example of creating a custom error
-* `modules`: example of Rust modules
-* `point.rs`: example of Rust "methods" and ownership
+* `modules`: example of modules
+* `point.rs`: example of "methods" and ownership
+* `units.rs`: example of newtype and deriving
