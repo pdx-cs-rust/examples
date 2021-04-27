@@ -20,3 +20,8 @@ in a controlled repository now.
 * `units.rs`: example of newtype and deriving
 * `patmove.rs`: example of `ref` in patterns
 * `result/`: example of defining and using `Result`
+* `top.rs`: top-n list example using generics
+* `sum.rs`: generic iterator sum example
+* `addy.rs`: trait def/impl example
+* `bno-salad.rs`: trait salad example from Blandy and Orendorff
+* `custom_sum.rs`: sum example with custom `Sum` type
