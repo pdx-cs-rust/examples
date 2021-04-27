@@ -10,7 +10,7 @@ unsafe fn hasher(start: *const u8, nbytes: usize) -> u128 {
     let mut result: u128 = 0;
     for i in 0..nbytes {
         let b = *start.offset(i as isize);
-        result += b as u128;
+        result = result.wrapping_add(b as u128);
     }
     result
 }
@@ -26,9 +26,9 @@ impl<T> Hash<T> {
 }
 
 fn main() {
-    let h1 = Hash::hash((0i32,));
+    let h1 = Hash::hash((0i32, 1i32));
     println!("{:?}", h1);
-    let h2 = Hash::hash((0u32,));
+    let h2 = Hash::hash(1u64);
     println!("{:?}", h2);
     // Can't even compare these, since they are of
     // different type.

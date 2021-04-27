@@ -12,6 +12,6 @@ impl Sum<MyU8> for u16 {
 }
 
 fn main() {
-    let s = vec![MyU8(1), MyU8(2), MyU8(3)].into_iter().sum::<u16>();
+    let s: u16 = vec![MyU8(1), MyU8(2), MyU8(3)].into_iter().sum();
     println!("{}", s);
 }

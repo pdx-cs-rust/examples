@@ -22,8 +22,8 @@ in a controlled repository now.
 * `result/`: example of defining and using `Result`
 * `top.rs`: top-n list example using generics
 * `sum.rs`: generic iterator sum example
+* `custom_sum.rs`: sum example with custom `Sum` type
 * `addy.rs`: trait def/impl example
 * `bno-salad.rs`: trait salad example from Blandy and Orendorff
 * `matmul.rs`: example of overloading multiplication for matrices
-* `custom_sum.rs`: sum example with custom `Sum` type
 * `phantom.rs`: phantom type example
