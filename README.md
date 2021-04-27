@@ -24,5 +24,6 @@ in a controlled repository now.
 * `sum.rs`: generic iterator sum example
 * `addy.rs`: trait def/impl example
 * `bno-salad.rs`: trait salad example from Blandy and Orendorff
+* `matmul.rs`: example of overloading multiplication for matrices
 * `custom_sum.rs`: sum example with custom `Sum` type
 * `phantom.rs`: phantom type example
