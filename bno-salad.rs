@@ -42,18 +42,18 @@ impl<T: Vegetable> GenericSalad<T> {
     }
 }
 
-struct TraitSalad {
-    veggies: Vec<Box<dyn Vegetable>>,
+struct TraitSalad<'a> {
+    veggies: Vec<&'a dyn Vegetable>,
 }
 
-impl TraitSalad {
+impl<'a> TraitSalad<'a> {
     fn new() -> Self {
         TraitSalad {
             veggies: Vec::new(),
         }
     }
 
-    fn add(&mut self, v: Box<dyn Vegetable>) {
+    fn add(&mut self, v: &'a dyn Vegetable) {
         self.veggies.push(v);
     }
 
@@ -66,15 +66,15 @@ impl TraitSalad {
 
 fn main() {
     let mut generic_salad = GenericSalad::new();
-    for v in [Lettuce, Lettuce].iter() {
-        generic_salad.add(*v);
+    for v in vec![Lettuce, Lettuce] {
+        generic_salad.add(v);
     }
     generic_salad.display();
 
     println!();
 
     let mut trait_salad = TraitSalad::new();
-    trait_salad.add(Box::new(Lettuce));
-    trait_salad.add(Box::new(Tomato));
+    trait_salad.add(&Lettuce);
+    trait_salad.add(&Tomato);
     trait_salad.display();
 }

@@ -1,4 +1,4 @@
-use std::ops::*;
+use std::ops::Mul;
 
 #[derive(Debug, Clone, Copy)]
 struct Matrix3([[u64;3];3]);
@@ -21,8 +21,8 @@ impl Mul for Matrix3 {
 }
 
 impl PartialEq for Matrix3 {
-    fn eq(&self, &Matrix3(ref rhs): &Matrix3) -> bool {
-        self.0 == *rhs
+    fn eq(&self, rhs: &Matrix3) -> bool {
+        self.0 == rhs.0
     }
 }
 
