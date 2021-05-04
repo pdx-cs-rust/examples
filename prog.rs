@@ -1,11 +1,11 @@
-struct State {
+struct CpuState {
     r: [i32;2],
     pc: usize,
 }
 
-type Op = fn(State) -> State;
+type Op = fn(CpuState) -> CpuState;
 
-impl State {
+impl CpuState {
     fn run(mut self, prog: &[Op]) -> i32 {
         while self.pc < prog.len() {
             let pc = self.pc;
@@ -16,19 +16,18 @@ impl State {
     }
 }
 
-fn add(mut state: State) -> State {
+fn add(mut state: CpuState) -> CpuState {
     state.r[0] += state.r[1];
     state
 }
 
-fn sub(mut state: State) -> State {
+fn sub(mut state: CpuState) -> CpuState {
     state.r[0] -= state.r[1];
     state
 }
 
-
 fn main() {
-    let state = State { r: [0, 1], pc: 0 };
+    let state = CpuState { r: [0, 1], pc: 0 };
     let prog = [add, add, sub, add];
     println!("{}", state.run(&prog));
 }
