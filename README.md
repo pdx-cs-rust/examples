@@ -27,3 +27,5 @@ in a controlled repository now.
 * `bno-salad.rs`: trait salad example from Blandy and Orendorff
 * `matmul.rs`: example of overloading multiplication for matrices
 * `phantom.rs`: phantom type example
+* `deref.rs`: deref trait example
+* `from.rs`: from / try_from trait example
