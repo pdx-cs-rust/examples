@@ -31,4 +31,6 @@ in a controlled repository now.
 * `deref.rs`: deref trait example
 * `from.rs`: from / try_from trait example
 * `prog.rs`, `prog2.rs`: state machine examples using closures
-* `shuflr/`: iterator implementation example
+* `negiter/`: example iterator adapter
+* `stackcoll/`: example fromiterator implementation
+* `shuflr/`: example iterator implementation

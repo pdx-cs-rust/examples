@@ -7,7 +7,7 @@ pub struct IterShuffled<'a, T> {
 }
 
 impl<'a, T> IterShuffled<'a, T> {
-    pub fn new<R>(values: &'a [T], rng: &mut R) -> Self
+    pub fn shuffled<R>(values: &'a [T], rng: &mut R) -> Self
     where
         R: Rng + ?Sized,
     {
@@ -25,29 +25,68 @@ impl<'a, T> Iterator for IterShuffled<'a, T> {
     }
 }
 
-pub trait Shuffled<T> {
+pub trait ShuffledExt<T> {
     fn shuffled<R>(&self, rng: &mut R) -> IterShuffled<T>
     where
         R: Rng + ?Sized;
 }
 
-impl<T> Shuffled<T> for [T] {
+impl<T> ShuffledExt<T> for [T] {
     fn shuffled<R>(&self, rng: &mut R) -> IterShuffled<T>
     where
         R: Rng + ?Sized,
     {
-        IterShuffled::new(self, rng)
+        IterShuffled::shuffled(self, rng)
     }
 }
 
-#[test]
-pub fn test_shuffled() {
-    let mut rng = rand::thread_rng();
-    let vals = &['a', 'b', 'c'];
-    let mut v = Vec::new();
-    for &c in vals.shuffled(&mut rng) {
-        v.push(c);
+#[cfg(test)]
+mod tests {
+    use rand::RngCore;
+
+    use super::*;
+
+    #[test]
+    pub fn test_shuffled_works() {
+        let mut rng = rand::thread_rng();
+        let vals = &['a', 'b', 'c'];
+        let mut v = Vec::new();
+        for &c in vals.shuffled(&mut rng) {
+            v.push(c);
+        }
+        v.sort();
+        assert_eq!(&v, vals);
     }
-    v.sort();
-    assert_eq!(&v, vals);
+
+    struct FakeRng(u64);
+
+    impl RngCore for FakeRng {
+        fn next_u32(&mut self) -> u32 {
+            let result = self.0 as u32;
+            self.0 += 1;
+            result
+        }
+        fn next_u64(&mut self) -> u64 {
+            let result = self.0;
+            self.0 += 1;
+            result
+        }
+        fn fill_bytes(&mut self, _dest: &mut [u8]) {
+            panic!("fill_bytes")
+        }
+        fn try_fill_bytes(&mut self, _dest: &mut [u8]) -> Result<(), rand::Error> {
+            panic!("try_fill_bytes")
+        }
+    }
+
+    #[test]
+    pub fn test_shuffled_shuffles() {
+        let mut rng = FakeRng(0);
+        let vals = &['a', 'b', 'c'];
+        let mut v = Vec::new();
+        for &c in vals.shuffled(&mut rng) {
+            v.push(c);
+        }
+        assert_eq!(&v, &['a', 'c', 'b']);
+    }
 }

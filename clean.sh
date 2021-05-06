@@ -5,5 +5,5 @@ do
 done
 for i in */Cargo.toml
 do
-    ( cd `dirname $i` && cargo clean -q )
+    ( cd `dirname $i` && cargo clean -q && rm -rf .git )
 done
