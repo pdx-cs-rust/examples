@@ -34,3 +34,8 @@ in a controlled repository now.
 * `negiter/`: example iterator adapter
 * `stackcoll/`: example fromiterator implementation
 * `shuflr/`: example iterator implementation
+* `seqs.rs`: examples with sequence types
+* `vecdeque.rs`: example of `VecDeque` usage
+* `setimpl.rs`: example implementation of `HashSet` as `HashMap`
+* `rng/`: example use of `rand` crate
+* `charcast.rs`: character / number casting examples
