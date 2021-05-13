@@ -8,4 +8,5 @@ fn main() {
     println!("{:016x}", '🦀' as u64);
 
     println!("{}", 0x78u8 as char);
+    // println!("{}", 0x1f980u32 as char); // Nope.
 }

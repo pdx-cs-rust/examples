@@ -39,3 +39,5 @@ in a controlled repository now.
 * `setimpl.rs`: example implementation of `HashSet` as `HashMap`
 * `rng/`: example use of `rand` crate
 * `charcast.rs`: character / number casting examples
+* `lower.rs`: boring character lowercase example
+* `stringchars.rs`: string ←→ chars conversion examples
