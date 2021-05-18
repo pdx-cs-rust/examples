@@ -41,3 +41,4 @@ in a controlled repository now.
 * `charcast.rs`: character / number casting examples
 * `lower.rs`: boring character lowercase example
 * `stringchars.rs`: string ←→ chars conversion examples
+* `stdio.rs`: stdio usage example
