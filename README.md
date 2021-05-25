@@ -42,3 +42,4 @@ in a controlled repository now.
 * `lower.rs`: boring character lowercase example
 * `stringchars.rs`: string ←→ chars conversion examples
 * `stdio.rs`: stdio usage example
+* `debug-macro.rs`: declarative macro example
