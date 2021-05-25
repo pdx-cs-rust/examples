@@ -43,3 +43,8 @@ in a controlled repository now.
 * `stringchars.rs`: string ←→ chars conversion examples
 * `stdio.rs`: stdio usage example
 * `debug-macro.rs`: declarative macro example
+* `square-macro.rs`: example of macro argument reuse
+* `macro-body-bug.rs`: example of syntax issue in macro body
+* `debug-macro-rep.rs`: example of macro with varargs
+* `macro-nargs.rs`: example of recursive macro
+* `macro-tt.rs`: macro token tree example
