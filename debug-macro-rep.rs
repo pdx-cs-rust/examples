@@ -5,19 +5,19 @@ const DEBUG: bool = true;
 macro_rules! debug {
     ($msg:literal, $($x:expr),+) => {
         if DEBUG {
-            eprint!("debug: {}:", $msg);
+            eprint!("debug: {}: {}:", line!(), $msg);
             $(eprint!(" {:?}", $x);)*
             eprintln!();
         }
     };
     ($msg:literal) => {
         if DEBUG {
-            eprintln!("debug: {}", $msg);
+            eprintln!("debug: {}: {}", line!(), $msg);
         }
     };
     () => {
         if DEBUG {
-            eprintln!("debug");
+            eprintln!("debug: {}", line!());
         }
     };
 }

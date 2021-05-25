@@ -1,5 +1,8 @@
 macro_rules! square {
-    ($n:expr) => { $n * $n };
+    ($s:expr) => {{
+        let n = $s;
+        n * n
+    }};
 }
 
 fn main() {

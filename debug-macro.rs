@@ -5,7 +5,7 @@ const DEBUG: bool = true;
 macro_rules! debug {
     ($msg:literal, $x:expr) => {
         if DEBUG {
-            eprintln!("{}: {:?}", $msg, $x);
+            eprintln!("{}: {:?}", $msg as &'static str, $x);
         }
     };
 }

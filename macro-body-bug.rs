@@ -1,8 +1,8 @@
 macro_rules! square {
-    ($n:expr) => { $n:expr * $n:expr };
+    ($n:expr) => { $n * $n };
 }
 
 fn main() {
-    let mut n = 3;
+    let n = 3;
     println!("3**2={}", square!(n));
 }
