@@ -48,3 +48,4 @@ in a controlled repository now.
 * `debug-macro-rep.rs`: example of macro with varargs
 * `macro-nargs.rs`: example of recursive macro
 * `macro-tt.rs`: macro token tree example
+* `nullptr.rs`: null pointer example
