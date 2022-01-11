@@ -50,3 +50,4 @@ in a controlled repository now.
 * `macro-tt.rs`: macro token tree example
 * `nullptr.rs`: null pointer example
 * `c++-ffi/`: example of FFI between C, C++ and Rust
+* `ownership-demo/`: example of ownership and borrowing stuff in C and Rust
