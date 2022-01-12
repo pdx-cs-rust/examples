@@ -51,3 +51,8 @@ in a controlled repository now.
 * `nullptr.rs`: null pointer example
 * `c++-ffi/`: example of FFI between C, C++ and Rust
 * `ownership-demo/`: example of ownership and borrowing stuff in C and Rust
+* `rust-winter2022/`: examples from Rust class Winter 2022
+* `struct-example.rs`: example of Rust struct
+* `enum-example.rs`: example of Rust enum
+* `closure-example.rs`: example of Rust closure
+* `iterator-example.rs`: example of Rust iterator
