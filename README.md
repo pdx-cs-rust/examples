@@ -56,3 +56,4 @@ in a controlled repository now.
 * `enum-example.rs`: example of Rust enum
 * `closure-example.rs`: example of Rust closure
 * `iterator-example.rs`: example of Rust iterator
+* `lifetimes-example.rs`: example involving Rust lifetimes
