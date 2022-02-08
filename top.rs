@@ -22,17 +22,17 @@ impl<T: fmt::Debug> fmt::Debug for Top<'_, T> {
 }
 
 // Can parameterize a function to make it able to take a specified type of data.
-fn make_top<T>(count: usize, order: fn(&T, &T) -> Ordering, vals: &[T]) -> Top<'_, T> {
-    let mut elems: Vec<&T> = vals.iter().collect();
-    elems.sort_by(|&v1, &v2| order(v1, v2));
-    if count < elems.len() {
-        elems.truncate(count);
-    }
-    Top { count, order, elems }
-}
-
 // Must parameterize an impl to match its type.
 impl<'a, T> Top<'a, T> {
+    fn new(count: usize, order: fn(&T, &T) -> Ordering, vals: &[T]) -> Top<'_, T> {
+        let mut elems: Vec<&T> = vals.iter().collect();
+        elems.sort_by(|&v1, &v2| order(v1, v2));
+        if count < elems.len() {
+            elems.truncate(count);
+        }
+        Top { count, order, elems }
+    }
+
     fn update(&mut self, val: &'a T) {
         self.elems.push(val);
         let order = self.order;
@@ -45,9 +45,9 @@ impl<'a, T> Top<'a, T> {
 }
 
 fn main() {
-    let vals = [9, 7, 3, 1, 4, 6, 8, 2, 5];
-    let mut top = make_top(3, |x, y| x.cmp(y), &vals);
+    let vals = ['d', 'b', 'c', 'a'];
+    let mut top = Top::new(3, |x, y| x.cmp(y), &vals);
     println!("{:?}", top);
-    top.update(&0);
+    Top::update(&mut top, &'X');
     println!("{:?}", top);
 }

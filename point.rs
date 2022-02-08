@@ -21,7 +21,7 @@ impl Point {
     }
     
     fn collapse(self) -> i64 {
-        self.x + self.y
+        self.x - self.y
     }
 }
 

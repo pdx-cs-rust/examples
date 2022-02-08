@@ -10,7 +10,7 @@ pub trait Numy {
         lhs + rhs
     }
 
-    fn render(self) -> Self::Rendering;
+    fn render(&self) -> Self::Rendering;
 }
 
 struct U64String(String);
@@ -29,15 +29,15 @@ impl std::ops::Add for U64String {
 impl Numy for U64String {
     type Rendering = String;
 
-    fn render(self) -> Self::Rendering {
-        self.0
+    fn render(&self) -> Self::Rendering {
+        self.0.clone()
     }
 }
 
 impl Numy for f64 {
     type Rendering = String;
 
-    fn render(self) -> Self::Rendering {
+    fn render(&self) -> Self::Rendering {
         self.to_string()
     }
 }
@@ -49,11 +49,12 @@ impl Numy for u64 {
         lhs + rhs + 1
     }
 
-    fn render(mut self) -> Self::Rendering {
+    fn render(&self) -> Self::Rendering {
+        let mut value = *self;
         let mut result = Vec::new();
-        while self > 0 {
-            result.push((self % 10) as u8);
-            self /= 10;
+        while value > 0 {
+            result.push((value % 10) as u8);
+            value /= 10;
         }
         result.reverse();
         result
