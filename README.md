@@ -58,3 +58,4 @@ in a controlled repository now.
 * `iterator-example.rs`: example of Rust iterator
 * `lifetimes-example.rs`: example involving Rust lifetimes
 * `strref.rs`: example involving Rust string clones and copies
+* `closures/`: closure examples
