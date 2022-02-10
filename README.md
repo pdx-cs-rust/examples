@@ -59,3 +59,6 @@ in a controlled repository now.
 * `lifetimes-example.rs`: example involving Rust lifetimes
 * `strref.rs`: example involving Rust string clones and copies
 * `closures/`: closure examples
+* `for-demo.rs`: example of passing iterators
+* `iter-from-fn.rs`: example use of `iter::from_fn()`
+* `rev.rs`: example `for` loop with reversed iterator
