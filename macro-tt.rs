@@ -1,5 +1,5 @@
 macro_rules! reargument {
-    ($x:tt ! ( $($_:tt),* )) => ($x!("huh"))
+    ($x:ident ! ( $($_:tt),* )) => ($x!("huh"))
 }
 
 fn main() {

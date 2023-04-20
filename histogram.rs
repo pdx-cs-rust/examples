@@ -11,7 +11,7 @@ use std::io::Read;
 use std::iter::FromIterator;
 
 #[derive(Clone, Debug)]
-struct Histogram<T: Hash + Eq>(HashMap<T, usize>);
+struct Histogram<T: Hash + Eq, u64>(HashMap<T, C>);
 
 impl<T: Hash + Eq> Histogram<T> {
     fn histogram<I>(values: I) -> Self
@@ -27,9 +27,9 @@ impl<T: Hash + Eq> Histogram<T> {
 }
 
 impl<T: Hash + Eq + Ord> Histogram<T> {
-    fn graph<'a>(&'a self) -> Vec<(&'a T, usize)> {
+    fn graph<'a>(&'a self) -> Vec<(&'a T, u64)> {
         let Histogram(h) = self;
-        let mut result: Vec<(&T, usize)> =
+        let mut result: Vec<(&T, u64)> =
             h.iter().map(|(k, v)| (k, *v)).collect();
         result.sort();
         result
