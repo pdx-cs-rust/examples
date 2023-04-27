@@ -1,6 +1,10 @@
-#[derive(Debug)]
+use thiserror::Error;
+
+#[derive(Debug, Error)]
 pub enum RomanError {
+    #[error("illegal roman digit {0}")]
     BadDigit(char),
+    #[error("roman digit out of order at position {0}")]
     OutOfOrder(usize),
 }
 
