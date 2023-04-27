@@ -8,10 +8,15 @@ const DIGIT_VALUES: [(char, u64); 7] = [
     ('I', 1),
 ];
 
-fn from_roman_digit(digit: char) -> Option<(usize, u64)> {
+struct RankedDigit {
+    rank: usize,
+    digit_value: u64,
+}
+
+fn from_roman_digit(digit: char) -> Option<RankedDigit> {
     for (rank, (digit_name, digit_value)) in DIGIT_VALUES.into_iter().enumerate() {
         if digit == digit_name {
-            return Some((rank, digit_value));
+            return Some(RankedDigit { rank, digit_value });
         }
     }
     None
@@ -31,13 +36,18 @@ pub fn from_roman(roman: &str) -> u64 {
     }
 
     for i in 1..digit_values.len() {
-        assert!(digit_values[i].0 <= digit_values[i - 1].0);
+        assert!(digit_values[i].rank >= digit_values[i - 1].rank);
     }
 
     let mut total = 0;
-    for (_, v) in digit_values {
-        total += v;
+    for rv in digit_values {
+        total += rv.digit_value;
     }
 
     total
+}
+
+#[test]
+fn test_roman() {
+    assert_eq!(1001, from_roman("MI"));
 }
