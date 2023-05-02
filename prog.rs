@@ -50,7 +50,7 @@ fn rst(_state: CpuState) -> CpuState {
 fn make_jmp(target: usize) -> Box<dyn Fn(CpuState) -> CpuState> {
     Box::new(move |mut state| {
         state.pc = target;
-        log("jmp", &state);
+        log(&format!("jmp {}", target), &state);
         state
     })
 }
