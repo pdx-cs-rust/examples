@@ -7,7 +7,8 @@ fn read_bytes<R: std::io::Read>(r: &mut R, n: usize) ->
     loop {
         let nread = r.read(target)?;
         if nread == 0 {
-            result.resize(target.len(), 0);
+            let ntarget = target.len();
+            result.resize(ntarget, 0);
             return Ok(result);
         }
         target = &mut target[nread..];
@@ -26,4 +27,9 @@ fn main() {
     println!("hello world");
     let mut stdout = std::io::stdout();
     print_string(&mut stdout, "print string!");
+    
+    let mut stdin = std::io::stdin();
+    let bytes = read_bytes(&mut stdin, 10).unwrap();
+    let read = String::from_utf8_lossy(&bytes);
+    print!("{}", read);
 }
