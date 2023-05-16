@@ -1,0 +1,7 @@
+[package]
+name = "defaulteg"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+impldefault = []

@@ -26,6 +26,8 @@ impl<const N: usize> PartialEq for Matrix<N> {
     }
 }
 
+impl<const N:usize> Eq for Matrix<N> {}
+
 const TTT: Matrix<3> = Matrix(
     [[1,2,3],
      [4,5,6],
