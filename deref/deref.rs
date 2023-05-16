@@ -13,6 +13,6 @@ fn test_deref() {
         *x + 1
     }
     let s = MyStruct(Box::new(8));
-    assert_eq!(*s, 8u8);
+    assert_eq!(&*s, &8u8);
     assert_eq!(add_one(&s), 9u8);
 }
