@@ -7,5 +7,5 @@ fn main() {
         .shuffled(&mut thread_rng())
         .flat_map(|c| c.to_uppercase())
         .collect();
-    println!("{s}");
+    println!("{}", s);
 }
