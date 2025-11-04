@@ -1,12 +1,19 @@
+/// State of CPU simulation.
 #[derive(Debug)]
 struct CpuState {
+    /// Our CPU has two 32-bit data registers.
     r: [i32;2],
+    /// Our CPU has a program counter.
     pc: usize,
 }
 
+/// Type of an "operation": that is, a machine instruction.
 type Op<'a> = &'a dyn Fn(CpuState) -> CpuState;
 
 impl CpuState {
+    /// Run the program `prog` prog
+    /// until the program counter exits
+    /// the program memory.
     fn run(mut self, prog: &[Op]) -> i32 {
         while self.pc < prog.len() {
             self = prog[self.pc](self);
@@ -15,10 +22,12 @@ impl CpuState {
     }
 }
 
+/// Show the state of the CPU.
 fn log(msg: &str, state: &CpuState) {
     println!("{}: {:?}", msg, state);
 }
 
+/// Add `r1` to `r0`.
 #[allow(unused)]
 fn add(mut state: CpuState) -> CpuState {
     log("add_start", &state);
@@ -28,6 +37,7 @@ fn add(mut state: CpuState) -> CpuState {
     state
 }
 
+/// Subtract `r1` from `r0`.
 #[allow(unused)]
 fn sub(mut state: CpuState) -> CpuState {
     log("sub_start", &state);
@@ -37,6 +47,7 @@ fn sub(mut state: CpuState) -> CpuState {
     state
 }
 
+/// Reset the CPU.
 #[allow(unused)]
 fn rst(_state: CpuState) -> CpuState {
     let state = CpuState {
@@ -47,15 +58,19 @@ fn rst(_state: CpuState) -> CpuState {
     state
 }
 
-fn make_jmp(target: usize) -> Box<dyn Fn(CpuState) -> CpuState> {
-    Box::new(move |mut state| {
+/// Create a jump instruction with the particular
+/// target address. This function is not a machine
+/// instruction itself: it produces one when called.
+fn make_jmp(mut target: String) -> impl Fn(CpuState) -> CpuState {
+    |mut state: CpuState| {
         state.pc = target;
         log(&format!("jmp {}", target), &state);
         state
-    })
+    }
 }
 
 
+/// Demo program.
 fn main() {
     let state = CpuState { r: [0, 1], pc: 0 };
     let add: Op = &add;
