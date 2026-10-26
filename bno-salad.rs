@@ -140,6 +140,16 @@ pub fn make_me_a_generic_salad<T: Vegetable + Clone>(veggie: T) ->
     generic_salad
 }
 
+/*
+pub fn _make_me_a_generic_lettuce_and_tomato_salad<T: Vegetable>()
+         -> GenericSalad<T> {
+    let mut generic_salad = GenericSalad::new();
+    generic_salad.add(Tomato);
+    generic_salad.add(Lettuce);
+    generic_salad
+}
+*/
+
 pub fn make_me_a_trait_salad() -> TraitSalad<'static> {
     let mut trait_salad = TraitSalad::new();
     trait_salad.add_direct(Lettuce);
