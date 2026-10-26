@@ -71,11 +71,11 @@ impl<T: Vegetable> GenericSalad<T> {
     }
 }
 
-pub struct TraitSalad<'a> {
-    bowl: Vec<Box<dyn Vegetable + 'a>>,
+pub struct TraitSalad {
+    bowl: Vec<Box<dyn Vegetable>>,
 }
 
-impl<'a> TraitSalad<'a> {
+impl TraitSalad {
     fn new() -> Self {
         TraitSalad {
             bowl: Vec::new(),
@@ -86,7 +86,7 @@ impl<'a> TraitSalad<'a> {
         self.bowl.push(v);
     }
 
-    fn add_direct<T: Vegetable + 'a>(&mut self, v: T) {
+    fn add_direct<T: Vegetable + 'static>(&mut self, v: T) {
         self.bowl.push(Box::new(v));
     }
 
@@ -150,7 +150,7 @@ pub fn _make_me_a_generic_lettuce_and_tomato_salad<T: Vegetable>()
 }
 */
 
-pub fn make_me_a_trait_salad() -> TraitSalad<'static> {
+pub fn make_me_a_trait_salad() -> TraitSalad {
     let mut trait_salad = TraitSalad::new();
     trait_salad.add_direct(Lettuce);
     trait_salad.add_direct(Tomato);
